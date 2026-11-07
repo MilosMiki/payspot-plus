@@ -1,0 +1,380 @@
+:root {
+  color-scheme: light;
+  --ink: #19313a;
+  --muted: #60747d;
+  --line: #d4e0e5;
+  --paper: #f5f9fb;
+  --panel: #ffffff;
+  --accent: #3e7c94;
+  --accent-dark: #2f647a;
+  --error: #a23535;
+  --shadow: 0 10px 28px rgba(32, 83, 101, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  min-width: 0;
+  min-height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  background: var(--paper);
+  color: var(--ink);
+  font:
+    14px/1.45 "Segoe UI",
+    sans-serif;
+}
+
+.app {
+  height: 100vh;
+  min-height: 0;
+  overflow: hidden;
+  padding: 24px;
+}
+
+.scanner-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 44px;
+  margin-bottom: 14px;
+}
+
+.back-button {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  background: var(--accent);
+  color: white;
+}
+
+.back-button:hover {
+  background: var(--accent-dark);
+}
+
+.back-button span {
+  display: block;
+  line-height: 1;
+  transform: translateY(-3px);
+}
+
+.scanner-toolbar .camera-select-label {
+  margin-left: 4px;
+}
+
+.camera-picker {
+  position: relative;
+  width: min(360px, 42vw);
+}
+
+.camera-picker-button {
+  width: 100%;
+  min-height: 40px;
+  padding: 10px 36px 10px 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: linear-gradient(135deg, #ffffff 0%, #edf5f8 100%);
+  color: var(--ink);
+  font-weight: 600;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: relative;
+}
+
+.camera-picker-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
+  transform: translateY(-65%) rotate(45deg);
+}
+
+.camera-picker-button:focus {
+  outline: 0;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(62, 124, 148, 0.18);
+}
+
+.camera-menu {
+  position: absolute;
+  z-index: 3;
+  top: calc(100% + 6px);
+  right: 0;
+  left: 0;
+  display: grid;
+  gap: 4px;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: var(--shadow);
+}
+
+.camera-menu[hidden] {
+  display: none !important;
+}
+
+.camera-option {
+  width: 100%;
+  overflow: hidden;
+  padding: 10px 11px;
+  border-radius: 7px;
+  background: #ffffff;
+  color: var(--ink);
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.camera-option:hover {
+  background: #e7f1f5;
+  color: var(--accent-dark);
+}
+
+.topbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 12px;
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 0;
+  font:
+    700 25px/1.1 Georgia,
+    serif;
+}
+
+.intro {
+  margin-bottom: 14px;
+  color: var(--muted);
+}
+
+.main-navigation {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--panel);
+}
+
+.nav-button {
+  padding: 8px 14px;
+  background: transparent;
+  color: var(--muted);
+}
+
+.nav-button.active {
+  background: var(--accent);
+  color: white;
+}
+
+.camera-panel {
+  position: relative;
+  display: grid;
+  height: calc(100vh - 104px);
+  min-height: 0;
+  overflow: hidden;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #dfe8e3;
+  box-shadow: var(--shadow);
+}
+
+video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+}
+
+.camera-placeholder {
+  position: absolute;
+  margin: 0;
+  color: var(--muted);
+}
+
+.scan-frame {
+  position: absolute;
+  height: 60%;
+  aspect-ratio: 1;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 0 0 999px rgba(9, 26, 19, 0.13);
+  pointer-events: none;
+}
+
+.camera-toolbar {
+  display: grid;
+  grid-template-columns: auto minmax(180px, 1fr) auto auto auto;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.camera-select-label {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+button {
+  font: inherit;
+}
+
+.controls {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+  border-radius: 8px;
+  padding: 9px 13px;
+  font-weight: 700;
+  transition:
+    background-color 120ms ease,
+    border-color 120ms ease,
+    transform 120ms ease;
+}
+
+button:hover:not(:disabled) {
+  transform: none;
+}
+
+button:disabled,
+select:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.primary {
+  background: var(--accent);
+  color: white;
+}
+
+.primary:hover:not(:disabled) {
+  background: var(--accent-dark);
+}
+
+.secondary,
+.copy-button {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--ink);
+}
+
+.status {
+  min-height: 20px;
+  margin: 12px 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.status.error {
+  color: var(--error);
+}
+
+.result-panel {
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.result-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h2 {
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.copy-button {
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+@media (max-width: 650px) {
+  body {
+    min-width: 0;
+    width: 100vw;
+  }
+
+  .app {
+    min-height: 100vh;
+  }
+
+  .topbar,
+  .camera-toolbar {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+
+  .camera-toolbar {
+    display: grid;
+  }
+}
+
+pre {
+  min-height: 48px;
+  max-height: 110px;
+  margin: 0;
+  overflow: auto;
+  padding: 10px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  border-radius: 5px;
+  background: var(--panel);
+  color: var(--ink);
+  font:
+    12px/1.45 Consolas,
+    monospace;
+}

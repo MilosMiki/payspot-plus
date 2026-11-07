@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Payspot plus",
+  "version": "0.1.0",
+  "description": "Interni alat za očitavanje IPS QR koda.",
+  "icons": {
+    "16": "icon.png",
+    "32": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Payspot plus",
+    "default_popup": "launcher.html",
+    "default_icon": "icon.png"
+  },
+  "permissions": ["activeTab", "scripting", "storage", "offscreen"],
+  "host_permissions": ["https://nbs.rs/*"],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*", "file:///*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+:root {
+  color-scheme: light;
+  --ink: #19313a;
+  --line: #d4e0e5;
+  --paper: #f5f9fb;
+  --panel: #ffffff;
+  --accent: #3e7c94;
+  --accent-dark: #2f647a;
+  --shadow: 0 8px 24px rgba(32, 83, 101, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 220px;
+  border: 1px solid var(--line);
+  margin: 0;
+  padding: 14px;
+  background: var(--paper);
+  color: var(--ink);
+  font:
+    14px/1.45 "Segoe UI",
+    sans-serif;
+}
+
+.launcher {
+  display: grid;
+  gap: 8px;
+  padding: 2px;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+  border-radius: 8px;
+  padding: 12px 14px;
+  background: var(--accent);
+  color: white;
+  font: inherit;
+  font-weight: 700;
+}
+
+button:hover {
+  background: var(--accent-dark);
+}
+
+button:hover {
+  background: var(--accent-dark);
+}

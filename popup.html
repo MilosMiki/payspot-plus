@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="sr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Payspot plus</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="scanner-toolbar">
+        <button
+          id="back-button"
+          class="back-button"
+          type="button"
+          aria-label="Nazad"
+          title="Nazad"
+        >
+          <span aria-hidden="true">←</span>
+        </button>
+        <label class="camera-select-label" for="camera-picker-button"
+          >Kamera</label
+        >
+        <div id="camera-picker" class="camera-picker">
+          <button
+            id="camera-picker-button"
+            class="camera-picker-button"
+            type="button"
+            aria-expanded="false"
+          >
+            Podrazumevana kamera
+          </button>
+          <div id="camera-menu" class="camera-menu" hidden></div>
+        </div>
+      </header>
+
+      <section class="camera-panel" aria-label="Pregled kamere">
+        <video id="camera" autoplay muted playsinline></video>
+        <div class="scan-frame" aria-hidden="true"></div>
+        <p id="camera-placeholder" class="camera-placeholder">
+          Kamera je isključena
+        </p>
+      </section>
+
+      <p id="status" class="visually-hidden" role="status"></p>
+
+      <canvas id="frame" hidden></canvas>
+    </main>
+    <script src="node_modules/jsqr/dist/jsQR.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

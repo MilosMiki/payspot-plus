@@ -1,0 +1,7 @@
+{
+  "name": "payspot-plus-qr-test",
+  "private": true,
+  "dependencies": {
+    "jsqr": "1.4.0"
+  }
+}

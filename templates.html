@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="sr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Šabloni | Payspot plus</title>
+    <link rel="stylesheet" href="templates.css" />
+  </head>
+  <body>
+    <main class="templates-app">
+      <header class="templates-header">
+        <div class="header-left">
+          <button
+            id="back-button"
+            class="back-button"
+            type="button"
+            aria-label="Nazad"
+            title="Nazad"
+          >
+            <span aria-hidden="true">←</span>
+          </button>
+          <h1>Šabloni</h1>
+        </div>
+
+        <button id="new-template-button" class="primary" type="button">
+          Novi šablon
+        </button>
+      </header>
+
+      <form id="template-form" class="template-form" hidden>
+        <div class="form-heading">
+          <h2>Novi šablon</h2>
+          <div class="form-actions">
+            <button class="primary" type="submit">Sačuvaj šablon</button>
+            <button id="cancel-button" class="cancel-button" type="button">
+              Otkaži
+            </button>
+          </div>
+        </div>
+
+        <label>
+          Naziv šablona
+          <input
+            id="template-name"
+            name="template-name"
+            required
+            type="text"
+            placeholder="npr. EPS"
+          />
+        </label>
+
+        <div id="template-fields" class="field-grid"></div>
+        <p id="form-status" class="form-status" role="status"></p>
+      </form>
+
+      <section class="saved-templates-section">
+        <h2 class="list-title">Sačuvani šabloni</h2>
+        <div id="template-list" class="template-list"></div>
+        <p id="empty-state" class="empty-state">Još nema sačuvanih šablona.</p>
+      </section>
+      <p id="page-status" class="form-status" role="status"></p>
+    </main>
+    <script src="templates.js"></script>
+  </body>
+</html>
